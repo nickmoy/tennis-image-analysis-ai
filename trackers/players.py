@@ -3,7 +3,8 @@ import cv2
 import pickle
 import sys
 sys.path.append('../')
-from utils import get_bbox_center, distance
+from utils import (get_bbox_center,
+                   distance)
 
 
 class PlayerTracker:

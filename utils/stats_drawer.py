@@ -21,7 +21,7 @@ def draw_player_stats(output_frames, df_player_stats):
         width = 350
         height = 230
         start_x = frame.shape[1] - 400
-        start_y = frame.shape[0] - 550
+        start_y = frame.shape[0] - 500
         end_x = start_x + width
         end_y = start_y + height
 

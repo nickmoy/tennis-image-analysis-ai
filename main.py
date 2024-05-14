@@ -40,10 +40,6 @@ def main():
     # Filter to only the two players playing the game
     player_detections = player_tracker.choose_and_filter_players(court_keypoints, player_detections)
 
-    # Detect ball shots
-    ball_shot_frames = ball_tracker.get_ball_shot_frames(ball_detections)
-    print("ball_shot_frames:", ball_shot_frames)
-
     # Create the Minicourt
     minicourt = Minicourt(video_frames[0])
 
@@ -51,6 +47,11 @@ def main():
     player_minicourt_detections, ball_minicourt_detections = minicourt.convert_bbox_to_pixel_coords(player_detections,
                                                                                                     ball_detections,
                                                                                                     court_keypoints)
+
+    # Detect ball shots
+    ball_shot_frames = ball_tracker.get_ball_shot_frames(ball_detections)
+    print("ball_shot_frames:", ball_shot_frames)
+
     # Calcualte stats data for each shot
     player_stats_data = [{
         'frame_num': 0,
@@ -125,8 +126,8 @@ def main():
     player_stats_data_df['player_2_average_player_speed'] = player_stats_data_df['player_2_total_player_speed']/player_stats_data_df['player_1_number_of_shots']
 
     # Draw player and ball detections
-    output_frames= player_tracker.draw_bboxes(video_frames, player_detections)
-    output_frames= ball_tracker.draw_bboxes(output_frames, ball_detections)
+    output_frames = player_tracker.draw_bboxes(video_frames, player_detections)
+    output_frames = ball_tracker.draw_bboxes(output_frames, ball_detections)
 
     # Draw court keypoints
     output_frames  = keypoints_detector.draw_keypoints_to_video(output_frames, court_keypoints)
@@ -141,9 +142,9 @@ def main():
 
     # Draw frame number
     for i, frame in enumerate(output_frames):
-        cv2.putText(frame, f"Frame: {i}", (10, 70), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
+        cv2.putText(frame, f"Frame: {i}", (10, 150), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2)
 
-    save_video(output_frames, "output_videos/output_video.avi")
+    save_video(output_frames, "output/output_video.avi")
 
 if __name__ == "__main__":
     main()

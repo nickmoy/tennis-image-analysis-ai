@@ -236,10 +236,13 @@ class Minicourt:
                                         court_keypoints[2*closest_keypoint_index+1])
 
                     if frame_num % 10 == 0:
-                        print("frame_num", frame_num)
-                        print("ball_pos", ball_pos)
-                        print("closest keypoint id:", closest_keypoint_index)
-                        print("closest keypoint coords:", closest_keypoint)
+                        print("frame_num:", frame_num)
+                        print("\tball_pos:", ball_pos)
+                        print("\tplayer_pos:", player_feet)
+                        print("\tclosest_player_id:", player_id)
+                        print("\tclosest keypoint id:", closest_keypoint_index)
+                        print("\tclosest keypoint coords:", closest_keypoint)
+                        print("\n")
 
                     mini_court_ball_pos = self.get_mini_court_coords(ball_pos,
                                                                      closest_keypoint,

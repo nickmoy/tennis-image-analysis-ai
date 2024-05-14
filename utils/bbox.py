@@ -1,3 +1,4 @@
+import numpy as np
 # bboxes are arrays of the format (x1, y1, x2, y2)
 
 # Returns center of bbox
@@ -10,7 +11,7 @@ def get_bbox_height(bbox):
 
 
 def distance(p1, p2):
-    return ((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)**0.5
+    return np.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2)
 
 
 def xy_distance(p1, p2):
