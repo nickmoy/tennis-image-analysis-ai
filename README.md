@@ -1,5 +1,7 @@
 # Tennis Image Analyzer
 
+![output_video](https://github.com/nickmoy/tennis-image-analysis-ai/assets/25787918/8130e351-47df-4a7a-aacb-7b9cb10cc947)
+
 Python project which tracks the positions of the players and the ball of an
 image/video of a Tennis match. Uses YOLO models to track the players and the ball
 and uses the Pytorch Resnet50 neural network to track keypoints on the court which are
