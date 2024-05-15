@@ -19,8 +19,8 @@ def main():
     video_frames = read_video(input_video_path)
 
     # Detect Players and Ball
-    player_tracker = PlayerTracker(model_path='yolov8x')
-    ball_tracker = BallTracker(model_path='models/ball_model_best.pt')
+    player_tracker = PlayerTracker(model_path='models/yolov8x')
+    ball_tracker = BallTracker(model_path='models/ball_model.pt')
 
     player_detections = player_tracker.detect_frames(video_frames,
                                                      read_from_stub=True,
@@ -33,7 +33,7 @@ def main():
     ball_detections = ball_tracker.interpolate_ball_positions(ball_detections)
 
     # Detect the keypoints
-    keypoints_model_path = "models/keypoints_model_learning_rate_e5.pth"
+    keypoints_model_path = "models/keypoints_model.pth"
     keypoints_detector = CourtLineDetector(keypoints_model_path)
     court_keypoints = keypoints_detector.predict(video_frames[0])
 
