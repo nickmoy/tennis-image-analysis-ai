@@ -9,7 +9,7 @@ used as reference points to calculate the positions of the players and the ball 
 as well as their speeds.
 
 I also draw a mini version of the court which displays the player and ball positions, although
-the position for the ball is currently broken.
+the position for the ball is currently broken and the speeds are off, but I will fix that in the future.
 
 All credit for the idea and structuring of the project goes to [abdullahtarek](https://www.github.com/abdullahtarek)
 as I followed his Youtube
